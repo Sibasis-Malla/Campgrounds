@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yelpcamp</title>
+    <link rel="stylesheet" href="/stylesheets/home.css"">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+     <link rel="manifest" href="/site.webmanifest">
+     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+      <meta name="msapplication-TileColor" content="#da532c">
+      <meta name="theme-color" content="#ffffff">
+</head>
+<body class="text-white">
+    <div class="container-fluid">
+        <header class="mb-5 pb-5">
+        <nav class="nav navbar-light justify-content-center mb-2 " >
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link " href="/campgrounds">Campgrounds</a>
+            <% if(!currentUser) { %>
+            <a class="nav-link" href="/login">Login</a>
+            <a class="nav-link" href="/register">Register</a>
+            <% } else { %>
+            <a class="nav-link" href="/logout">Logout</a>
+            <% } %>
+        </nav>
+        </header>
+        
+        <div class="text-center mb-5">
+            <h1>Yelp Camp</h1>
+        </div>
+        <div class="text-center" >
+            Welcome to YelpCamp! <br> Jump right in and explore our many campgrounds. <br>
+                Feel free to share some of your own and comment on others!</p>
+        </div>
+        <div class="text-center">
+            <a href="/campgrounds" class="btn btn-lg btn-dark">View
+            Campgrounds</a>
+
+        </div>
+
+    </div>
+    <footer class="text-center mt-5 text-white-50">
+        <p>&copy; 2021 </p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</body>
+</html>
