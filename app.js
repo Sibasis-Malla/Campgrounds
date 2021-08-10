@@ -19,6 +19,7 @@ const MongoStore = require('connect-mongo');
 const dbUrl = process.env.DB_URL||'mongodb://localhost:27017/yelp-camp'
 //mongodb://localhost:27017/yelp-camp
 const secret = process.env.SECRET || 'garbage'
+const port = process.env.PORT || 8080
 
 
 mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true,
@@ -87,7 +88,7 @@ app.use(
     })
 );
 
-app.listen('8080',()=>{
+app.listen(port,()=>{
     console.log('Listening')
 })
 const store = MongoStore.create({
