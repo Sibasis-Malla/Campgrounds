@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 const express =  require('express')
 const Review = require('../models/reviews')
 const app =  express()
@@ -8,9 +11,10 @@ const cities = require('./cities')
 const seedHelpers = require('./seedHelpers')
 const{descriptors,places}=seedHelpers
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
-const geoCoder = mbxGeocoding({ accessToken: 'pk.eyJ1Ijoic2liYXNpc21hbGxhIiwiYSI6ImNrczVsanE2dTJoYWUzMW1ybGMxNWxncHAifQ.qfzFZvCFVivELNyCtv4mTA'});
+const geoCoder = mbxGeocoding({ accessToken: process.env.MAPBOX_TOKEN});
+const dbUrl = process.env.DB_URL
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(dbUrl, {useNewUrlParser: true, useUnifiedTopology: true});
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -35,7 +39,7 @@ const seedDB = async()=>{
         }).send()
        //  consol
         const camp = new CampGround({
-            author:'61101b413b18de1f4ca05400',
+            author:'6112c9e8f23805001540457c',
             title : `${sample(descriptors)} ${sample(places)}`,
             price:20,
             location:locationRandom,
